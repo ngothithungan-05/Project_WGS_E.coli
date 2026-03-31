@@ -1,0 +1,4 @@
+
+=== Error correction and assembling warnings:
+ * 0:01:05.989    59M / 1132M WARN    General                 (pair_info_count.cpp       : 376)   Estimated mean insert size 310.069 is very small compared to read length 301
+======= Warnings saved to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/warnings.log

@@ -1,0 +1,188 @@
+- STAGE: Before start
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: before_start
+- STAGE: Preprocess reads
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: preprocess_start
+- STAGE: Preprocess interlaced reads
+  args:
+  - /opt/conda/envs/assembly_env/share/spades/spades_pipeline/scripts/preprocess_interlaced_reads.py
+  - --args_filename
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/split_input/tmp/interlaced
+  - --dst
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/split_input
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: /opt/conda/envs/assembly_env/bin/python
+  short_name: preprocess_12
+- STAGE: Preprocess reads
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: preprocess_finish
+- STAGE: Read error correction
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: ec_start
+- STAGE: Read error correction
+  args:
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/corrected/configs/config.info
+  config_dir: corrected
+  del_after:
+  - tmp/hammer_bdtq6di2
+  output_files:
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/corrected/corrected.yaml
+  path: /opt/conda/envs/assembly_env/bin/spades-hammer
+  short_name: ec_runtool
+- STAGE: corrected reads compression
+  args:
+  - /opt/conda/envs/assembly_env/share/spades/spades_pipeline/scripts/compress_all.py
+  - --input_file
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/corrected/corrected.yaml
+  - --ext_python_modules_home
+  - /opt/conda/envs/assembly_env/share/spades
+  - --max_threads
+  - '16'
+  - --output_dir
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/corrected
+  - --gzip_output
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: /opt/conda/envs/assembly_env/bin/python
+  short_name: ec_compress
+- STAGE: Read error correction
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: ec_finish
+- STAGE: Assembling
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: as_start
+- STAGE: K21
+  args:
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K21/configs/config.info
+  config_dir: K21
+  del_after: []
+  output_files: []
+  path: /opt/conda/envs/assembly_env/bin/spades-core
+  short_name: k21
+- STAGE: K33
+  args:
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K33/configs/config.info
+  config_dir: K33
+  del_after: []
+  output_files: []
+  path: /opt/conda/envs/assembly_env/bin/spades-core
+  short_name: k33
+- STAGE: K55
+  args:
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K55/configs/config.info
+  config_dir: K55
+  del_after: []
+  output_files: []
+  path: /opt/conda/envs/assembly_env/bin/spades-core
+  short_name: k55
+- STAGE: K77
+  args:
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K77/configs/config.info
+  config_dir: K77
+  del_after: []
+  output_files: []
+  path: /opt/conda/envs/assembly_env/bin/spades-core
+  short_name: k77
+- STAGE: K99
+  args:
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K99/configs/config.info
+  config_dir: K99
+  del_after: []
+  output_files: []
+  path: /opt/conda/envs/assembly_env/bin/spades-core
+  short_name: k99
+- STAGE: K127
+  args:
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K127/configs/config.info
+  config_dir: K127
+  del_after: []
+  output_files: []
+  path: /opt/conda/envs/assembly_env/bin/spades-core
+  short_name: k127
+- STAGE: Copy files
+  args:
+  - /opt/conda/envs/assembly_env/share/spades/spades_pipeline/scripts/copy_files.py
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K127/before_rr.fasta
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/before_rr.fasta
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K127/assembly_graph_after_simplification.gfa
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/assembly_graph_after_simplification.gfa
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K127/final_contigs.fasta
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/contigs.fasta
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K127/first_pe_contigs.fasta
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/first_pe_contigs.fasta
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K127/strain_graph.gfa
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/strain_graph.gfa
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K127/scaffolds.fasta
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/scaffolds.fasta
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K127/scaffolds.paths
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/scaffolds.paths
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K127/assembly_graph_with_scaffolds.gfa
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/assembly_graph_with_scaffolds.gfa
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K127/assembly_graph.fastg
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/assembly_graph.fastg
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/K127/final_contigs.paths
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/contigs.paths
+  config_dir: ''
+  del_after:
+  - .bin_reads
+  - tmp/spades_uhi2yecr
+  output_files: []
+  path: /opt/conda/envs/assembly_env/bin/python
+  short_name: copy_files
+- STAGE: Assembling
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: as_finish
+- STAGE: Breaking scaffolds
+  args:
+  - /opt/conda/envs/assembly_env/share/spades/spades_pipeline/scripts/breaking_scaffolds_script.py
+  - --result_scaffolds_filename
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/scaffolds.fasta
+  - --misc_dir
+  - /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/misc
+  - --threshold_for_breaking_scaffolds
+  - '3'
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: /opt/conda/envs/assembly_env/bin/python
+  short_name: bs
+- STAGE: Terminate
+  args: []
+  config_dir: ''
+  del_after:
+  - configs
+  output_files: []
+  path: 'true'
+  short_name: terminate

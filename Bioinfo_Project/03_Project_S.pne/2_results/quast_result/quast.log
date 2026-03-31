@@ -1,0 +1,66 @@
+/opt/conda/envs/assembly_env/bin/quast.py Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/contigs.fasta -o Bioinfo_Project/03_Project_S.pne/2_results/quast_result/
+
+Version: 5.0.2
+
+System information:
+  OS: Linux-6.8.0-1044-azure-x86_64-with-debian-trixie-sid (linux_64)
+  Python version: 3.6.15
+  CPUs number: 2
+
+Started: 2026-03-30 07:34:15
+
+Logging to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/quast_result/quast.log
+NOTICE: Maximum number of threads is set to 1 (use --threads option to set it manually)
+
+CWD: /workspaces/Bioinfo_Project
+Main parameters: 
+  MODE: default, threads: 1, minimum contig length: 500, minimum alignment length: 65, \
+  ambiguity: one, threshold for extensive misassembly size: 1000
+
+Contigs:
+  Pre-processing...
+  Bioinfo_Project/03_Project_S.pne/2_results/assembly_result/contigs.fasta ==> contigs
+
+2026-03-30 07:34:22
+Running Basic statistics processor...
+  Contig files: 
+    contigs
+  Calculating N50 and L50...
+    contigs, N50 = 33211, L50 = 20, Total length = 1986138, GC % = 39.84, # N's per 100 kbp =  0.00
+  Drawing Nx plot...
+    saved to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/quast_result/basic_stats/Nx_plot.pdf
+  Drawing cumulative plot...
+    saved to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/quast_result/basic_stats/cumulative_plot.pdf
+  Drawing GC content plot...
+    saved to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/quast_result/basic_stats/GC_content_plot.pdf
+  Drawing contigs GC content plot...
+    saved to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/quast_result/basic_stats/contigs_GC_content_plot.pdf
+  Drawing Coverage histogram (bin size: 4x)...
+    saved to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/quast_result/basic_stats/coverage_histogram.pdf
+  Drawing contigs coverage histogram (bin size: 4x)...
+    saved to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/quast_result/basic_stats/contigs_coverage_histogram.pdf
+Done.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding or --glimmer option to enable it.
+
+2026-03-30 07:34:24
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 2: Creating Icarus viewers...
+  2 of 2: Creating PDF with all tables and plots...
+Done
+
+2026-03-30 07:34:25
+RESULTS:
+  Text versions of total report are saved to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/quast_result/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/quast_result/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  HTML version (interactive tables and plots) is saved to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/quast_result/report.html
+  PDF version (tables and plots) is saved to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/quast_result/report.pdf
+  Icarus (contig browser) is saved to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/quast_result/icarus.html
+  Log is saved to /workspaces/Bioinfo_Project/Bioinfo_Project/03_Project_S.pne/2_results/quast_result/quast.log
+
+Finished: 2026-03-30 07:34:25
+Elapsed time: 0:00:09.988940
+NOTICEs: 2; WARNINGs: 0; non-fatal ERRORs: 0
+
+Thank you for using QUAST!

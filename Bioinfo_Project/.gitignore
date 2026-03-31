@@ -1,0 +1,9 @@
+# Ignore heavy genomic data files
+*.fastq.gz
+*.fastq
+*.fq.gz
+*.bam
+*.sam
+
+# Ignore heavy environment folders
+4_env/
